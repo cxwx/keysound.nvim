@@ -1,7 +1,8 @@
 local M = {}
 
-local plugin_root = debug.getinfo(1, "S").source:sub(2):match("(.*[/\\])"):match("(.*[/\\])"):match("(.*[/\\])")
-  or vim.fn.expand("~/.local/share/nvim/lazy/keysound.nvim/")
+local source = debug.getinfo(1, "S").source:sub(2)
+local plugin_root = source:match("(.*)/(.*)/(.*)/(.*)")
+  or vim.fn.expand("~/.local/share/nvim/lazy/keysound.nvim/") .. "/"
 
 M._enabled = false
 M._ns = vim.api.nvim_create_namespace("keysound")
