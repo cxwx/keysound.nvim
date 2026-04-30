@@ -12,9 +12,7 @@ Neovim 按键音效插件 — 在插入模式下为每次按键播放音效。
   keys = {
     { "<leader>ts", function() require("keysound").toggle() end, desc = "Toggle KeySound" },
   },
-  opts = {
-    sound_dir = vim.fn.expand("~/.config/nvim/sounds/"),
-  },
+  opts = {},
 }
 ```
 
@@ -24,18 +22,18 @@ Neovim 按键音效插件 — 在插入模式下为每次按键播放音效。
 {
   "cxwx/keysound.nvim",
   cmd = "KeySound",
-  opts = {
-    sound_dir = vim.fn.expand("~/.config/nvim/sounds/"),
-  },
+  opts = {},
 }
 ```
+
+插件自带 mario 音效，开箱即用，无需额外配置。
 
 ## 配置
 
 ```lua
 require("keysound").setup({
-  -- 音效文件目录（必须以 / 结尾，否则自动补全）
-  sound_dir = "/path/to/sounds/",
+  -- 自定义音效目录（可选，默认使用内置 mario 音效）
+  -- sound_dir = "/path/to/sounds/",
 
   -- 自定义音效文件名
   sounds = {
@@ -48,7 +46,7 @@ require("keysound").setup({
 })
 ```
 
-### 音效文件
+### 自定义音效
 
 在 `sound_dir` 目录下放置两个 mp3 文件：
 
